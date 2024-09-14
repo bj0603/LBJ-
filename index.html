@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8"> <!-- 設定文件編碼為UTF-8，支援中文 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 讓頁面在行動裝置上自適應 -->
+    <title>LBJ工作室</title>
+    <style>
+        /* 重設瀏覽器預設的內邊距與外邊距，確保一致性 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* 使邊框計算更直觀 */
+        }
+
+        /* 設定全域的字體、行高與背景顏色 */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4; /* 背景色淡化以突顯內容 */
+        }
+
+        /* 頁首設置 */
+        header {
+            display: flex; /* 使用彈性佈局 */
+            justify-content: space-between; /* 左右對齊 */
+            align-items: center; /* 垂直置中 */
+            padding: 15px 30px;
+            background-color: #333; /* 深色背景提高對比 */
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 加上陰影使其浮起 */
+        }
+
+        /* LOGO樣式 */
+        header .logo {
+            font-size: 1.5em; /* 放大LOGO文字 */
+            font-weight: bold; /* 讓LOGO文字加粗 */
+        }
+
+        /* 導覽列樣式 */
+        header nav ul {
+            list-style: none; /* 移除預設的列表樣式 */
+            display: flex; /* 使用彈性佈局 */
+            gap: 20px; /* 使用gap屬性控制元素間距 */
+        }
+
+        /* 導覽列連結樣式 */
+        header nav ul li a {
+            text-decoration: none; /* 移除下劃線 */
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s ease; /* 增加滑鼠移入動畫效果 */
+        }
+
+        /* 當滑鼠移入導覽列連結時的樣式 */
+        header nav ul li a:hover {
+            color: #ffcc00; /* 滑鼠移入時文字變色 */
+        }
+
+        /* 'Get Started' 按鈕樣式 */
+        .get-started {
+            padding: 10px 20px;
+            background-color: #ffcc00; /* 按鈕背景顏色 */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease; /* 增加背景顏色變化過渡 */
+        }
+
+        /* 當滑鼠移入 'Get Started' 按鈕時的樣式 */
+        .get-started:hover {
+            background-color: #e6b800; /* 按鈕滑鼠移入效果 */
+        }
+
+        /* Hero 區域樣式 */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 20px;
+            background-color: #fff;
+            min-height: 100vh; /* 確保內容始終佔滿頁面高度 */
+        }
+
+        /* 文字內容區塊 */
+        .hero-content {
+            max-width: 50%; /* 內容最大寬度 */
+            padding-right: 20px; /* 右側內邊距 */
+        }
+
+        /* Hero 標題樣式 */
+        .hero-content h1 {
+            font-size: 3em; /* 放大字體 */
+            margin-bottom: 20px; /* 增加底部間距 */
+            color: #333;
+            line-height: 1.2; /* 調整行高 */
+        }
+
+        /* Hero 段落樣式 */
+        .hero-content p {
+            font-size: 1.2em; /* 放大字體 */
+            margin-bottom: 20px; /* 增加底部間距 */
+            color: #666; /* 調整段落字體顏色 */
+        }
+
+        /* 圖片樣式 */
+        .hero-image img {
+            max-width: 100%; /* 確保圖片不超出容器寬度 */
+            height: auto; /* 保持圖片的寬高比 */
+            object-fit: cover; /* 確保圖片按比例填滿 */
+            border-radius: 10px; /* 圓角圖片 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 圖片陰影 */
+        }
+
+        /* 成員區塊樣式 */
+        .memerber {
+            padding: 50px 20px;
+            background-color: #f9f9f9; /* 使用淺色背景來區分區塊 */
+        }
+
+        /* 成員標題與子標題的對齊與樣式 */
+        .memerber h1, .memerber h2, .memerber h3 {
+            margin-bottom: 20px; /* 增加底部間距 */
+            text-align: center; /* 文字置中 */
+        }
+
+        /* 小標題樣式 */
+        .memerber h2 {
+            margin-top: 30px;
+            font-size: 1.8em; /* 放大字體 */
+            color: #333;
+        }
+
+        /* 小段落樣式 */
+        .memerber h3 {
+            font-size: 1.4em; /* 放大字體 */
+            color: #666; /* 調整字體顏色 */
+        }
+
+        /* 成員圖片容器樣式 */
+        .image-container {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* 成員圖片樣式 */
+        .image-container img {
+            width: 300px;
+            height: auto; /* 保持圖片比例 */
+            object-fit: contain; /* 確保圖片不被拉伸 */
+            border-radius: 8px; /* 圓角 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 增加圖片陰影 */
+        }
+
+        /* 頁腳樣式 */
+        footer {
+            background-color: #333; /* 深色背景 */
+            color: #fff; /* 白色字體 */
+            text-align: center;
+            padding: 20px 0; /* 增加內邊距 */
+            font-size: 0.9em; /* 調整字體大小 */
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* 頁腳陰影 */
+        }
+
+        footer p {
+            margin: 0; /* 移除預設的外邊距 */
+        }
+
+        /* 調整按鈕大小 */
+        button.get-started {
+            font-size: 1.2em; /* 放大按鈕字體 */
+            padding: 12px 24px; /* 增加內邊距 */
+        }
+
+        /* 手機友好設置 */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column; /* 手機視窗時改為上下排列 */
+                text-align: center;
+            }
+
+            .hero-content, .hero-image {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .hero-content h1 {
+                font-size: 2em; /* 手機上縮小標題字體 */
+            }
+
+            .memerber {
+                padding: 30px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            LBJ工作室 <!-- 顯示工作室名稱 -->
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">首頁</a></li> <!-- 導覽至首頁 -->
+                <li><a href="service.html">服務項目</a></li> <!-- 導覽至服務項目 -->
+                <li><a href="contact.html">與我聯繫</a></li> <!-- 導覽至聯繫頁面 -->
+                <button class="get-started" onclick="redirectToPage()">Get Started</button> <!-- 'Get Started' 按鈕 -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero 區域 -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>LBJ工作室</h2> <!-- 主標題 -->
+            <h1>沒有做不到<br>只有想不想去做</h1> <!-- 副標題 -->
+            <p>Don't wish for it. Work for it.</p> <!-- 鼓勵性語句 -->
+            <button class="get-started" onclick="redirectToPage()">Get Started</button> <!-- 'Get Started' 按鈕 -->
+        </div>
+        <div class="hero-image">
+            <img src="page.jpg" alt="Collaboration"> <!-- 圖片 -->
+        </div>
+    </section>
+
+    <!-- 成員介紹區域 -->
+    <div class="memerber">
+        <h1>關於我們</h1> <!-- 主標題 -->
+        <h3>LBJ工作室成立於20XX/XX/XX</h3> <!-- 創立日期介紹 -->
+        <h3>我們是一群剛滿高三的學生<br>利用課閒時間做出了這個平台<br>初衷是為了讓大家可以在去到陌生的地方時<br>可以選擇到當地最好的美食不要踩雷</h3> <!-- 成立的動機與願景介紹 -->
+        <br>
+        <h1>工作人員介紹</h1>
+        <br>
+
+        <h2>軟體開發工程組</h2>
+        <h3>技術總監：林秉榤</h3> <!-- 技術總監介紹 -->
+        <div class="image-container">
+            <img src="./bj.jpg" alt="林秉榤"> <!-- 林秉榤圖片 -->
+        </div>
+        <br>
+        <br>
+
+        <h2>計畫創意組</h2>
+        <h3>創意總監：王毓晨</h3> <!-- 創意總監介紹 -->
+        <div class="image-container">
+            <img src="./YU.JPG" alt="王毓晨"> <!-- 王毓晨圖片 -->
+        </div>
+        <br>
+        <br>
+
+        <h2>財務會計組</h2>
+        <h3>財務總監：黃博澤</h3> <!-- 財務總監介紹 -->
+        <div class="image-container">
+            <img src="./down.JPG" alt="黃博澤"> <!-- 黃博澤圖片 -->
+        </div>
+        <br>
+        <br>
+
+        <h2>Instagram版面經營組</h2>
+        <h3>品牌經理</h3> <!-- 品牌經理介紹 -->
+        <div class="image-container">
+            <img src="./" alt="品牌經理"> <!-- 品牌經理圖片 -->
+        </div>
+        
+        <br>
+        <br>
+    </div>
+
+    <!-- 頁腳區域 -->
+    <footer>
+        <p>&copy; 2024 LBJ工作室. All rights reserved.</p> <!-- 版權聲明 -->
+    </footer>
+
+    <script>
+        /* 等頁面加載完成後，加入點擊事件處理 */
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.querySelector('.menu-toggle'); /* 取得選單按鈕 */
+            const nav = document.querySelector('nav ul'); /* 取得導覽列表 */
+        
+            /* 點擊事件：切換導覽列開啟/關閉 */
+            menuButton.addEventListener('click', function() {
+                nav.classList.toggle('open'); /* 開關導覽列 */
+            });
+        });
+
+        // 'Get Started' 按鈕點擊事件
+        function redirectToPage() {
+            window.location.href = "service.html"; // 跳轉到服務頁面
+        }
+    </script>
+</body>
+</html>
